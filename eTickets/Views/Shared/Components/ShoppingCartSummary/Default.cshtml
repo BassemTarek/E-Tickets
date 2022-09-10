@@ -1,0 +1,19 @@
+﻿@model int;
+
+@if (Model > 0)
+{
+    <a asp-controller="Orders" asp-action="ShoppingCart" class="btn btn--icon header__btn--1">
+        <svg>
+            <use xlink:href="/img/sprite.svg#icon-shopping-cart"></use>
+        </svg>
+        <span class="btn--icon__notification">@Model</span>
+    </a>
+}
+else
+{
+    <a asp-controller="Orders" asp-action="ShoppingCart" class="btn btn--icon header__btn--1">
+        <svg>
+            <use xlink:href="/img/sprite.svg#icon-shopping-cart"></use>
+        </svg>
+    </a>
+}

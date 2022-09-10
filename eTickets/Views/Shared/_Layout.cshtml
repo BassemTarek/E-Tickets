@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - eTickets</title>
+    <title>@ViewData["Title"] - Movie Store</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/eTickets.styles.css" asp-append-version="true" />
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Movies" asp-action="Index">eTickets</a>
+                <a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                             <i class="bi bi-gear"></i> Management
                             </a>
 
-                            <div class="dropdownmenu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
                                 <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
                                 <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
@@ -41,6 +41,23 @@
                             <input name="searchString" type="text" class="form-control" placeholder="Search for a movie...">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
+                    <ul class="navbar-nav">
+                            @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+
+                    <div class="drop-down">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown" area-expanded="false">
+                            <i class="bi bi-person-badge"></i> Hello User
+                            </button>
+                            <ul class="dropdown-menu" area-labeledby="profile-btn">
+                                <li>
+                                <a class="list-item" asp-controller="Orders" asp-action="Index">
+                                    <i class="bi bi-list"></i>Orders
+                                </a>
+                                </li>
+                            </ul>                            
+                    </div>
+                    
 
                        
                                                                  
