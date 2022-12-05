@@ -50,6 +50,11 @@
         <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..."> &nbsp;
         <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
       </form>
+    
+
+      <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+          <i class="bi bi-box-arrow-in-right"></i>Log In
+      </a>
        
     </div>
   </div>
@@ -97,7 +102,7 @@
                     <ul class="navbar-nav">
                             @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
-
+                       @*user profile section@*
                     <div class="drop-down">
                         <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown" area-expanded="false">
                             <i class="bi bi-person-badge"></i> Hello User
