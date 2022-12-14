@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 70px;">
   <div class="container-fluid">
     <a class="navbar-brand text-warning" asp-controller="Movies" asp-action="Index">Movie Store</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,11 +50,28 @@
         <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..."> &nbsp;
         <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
       </form>
-    
+      <span style="padding: 5px;"></span>
 
+      @*Login*@
       <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
           <i class="bi bi-box-arrow-in-right"></i>Log In
       </a>
+       <span style="padding: 5px;"></span>
+
+
+        @*Register*@
+      <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
+          <i class="bi bi-person-plus"></i>Register
+      </a>
+      <span style="padding: 5px;"></span>
+       @*Log Out*@
+       <form asp-controller="Account" asp-action="Logout">
+           <button class="btn btn-outline-danger my-2 my-sm-0">
+               <i class="bi bi-box-arrow-in-right"></i>Log Out
+           </button>
+       </form>
+       
+
        
     </div>
   </div>
