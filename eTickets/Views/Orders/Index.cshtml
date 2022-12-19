@@ -17,8 +17,12 @@
                         <th>Order Id</th>
                         <th>Items</th>
                         <th>Total</th>
+                @if (!User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
                         <th>User</th>
-                    </tr>
+                    }
+                    
+                </tr>
                 </thead>
                 <tbody>
                 @foreach (var order in Model)
@@ -40,7 +44,10 @@
                         <td class="align-content-center">
                             @order.OrderItems.Select(m => m.Price * m.Amount).Sum().ToString("c")
                         </td>
-                        <td class="align-content-center"> - </td>                  
+                @if (!User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <td class="align-content-center"> - </td>
+                        }
                     </tr>
                    }
                 </tbody>

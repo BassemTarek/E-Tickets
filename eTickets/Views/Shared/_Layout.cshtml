@@ -26,24 +26,27 @@
         @*<li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
+
         @*dropdown*@
-        <li class="nav-item dropdown">
-          <a class="nav-link btn btn-outline-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-gear"></i> Management
-          </a>
-          <ul class="dropdown-menu bg-dark">
-            <li><a class="dropdown-item bg-warning" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a></li>
-                        <li><hr class="dropdown-divider"></li>
+        @if (!User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                  <a class="nav-link btn btn-outline-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="bi bi-gear"></i> Management
+                                  </a>
+                                  <ul class="dropdown-menu bg-dark">
+                                    <li><a class="dropdown-item bg-warning" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a></li>
+                                                <li><hr class="dropdown-divider"></li>
 
-            <li><a class="dropdown-item bg-warning"  asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item bg-warning"  asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a></li>
+                                                <li><hr class="dropdown-divider"></li>
 
-             <li><a class="dropdown-item bg-warning"  asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item bg-warning" href="#">Something else here</a></li>
-          </ul>
-        </li>
-         
+                                     <li><a class="dropdown-item bg-warning"  asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                  </ul>
+                            </li>
+                        }
+                             
         
       </ul>
       <form class="d-flex"  asp-controller="Movies" asp-action="Filter" role="search">
@@ -52,27 +55,7 @@
       </form>
       <span style="padding: 5px;"></span>
 
-      @*Login*@
-      <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
-          <i class="bi bi-box-arrow-in-right"></i>Log In
-      </a>
-       <span style="padding: 5px;"></span>
-
-
-        @*Register*@
-      <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
-          <i class="bi bi-person-plus"></i>Register
-      </a>
-      <span style="padding: 5px;"></span>
-       @*Log Out*@
-       <form asp-controller="Account" asp-action="Logout">
-           <button class="btn btn-outline-danger my-2 my-sm-0">
-               <i class="bi bi-box-arrow-in-right"></i>Log Out
-           </button>
-       </form>
-       
-
-       
+        <partial name="_Identity.cshtml">               
     </div>
   </div>
 </nav>
